@@ -8,3 +8,5 @@ google-generativeai
 passlib[bcrypt]
 python-multipart
 jose[cryptography]
+cryptography
+pypdf
