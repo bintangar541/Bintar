@@ -11,3 +11,4 @@ jose[cryptography]
 cryptography
 pypdf
 resend
+groq
