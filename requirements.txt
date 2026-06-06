@@ -7,7 +7,7 @@ python-dotenv
 google-generativeai
 passlib
 python-multipart
-jose[cryptography]
+python-jose[cryptography]
 cryptography
 pypdf
 resend
