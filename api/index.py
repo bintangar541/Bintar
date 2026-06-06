@@ -1,21 +1,9 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+import os
+import sys
 
-app = FastAPI()
+# Add project root to sys.path
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, root)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/")
-async def root():
-    return {"status": "ok", "message": "Bintar Minimal API is Running"}
-
-@app.get("/auth/register")
-@app.options("/auth/register")
-async def dummy_register():
-    return {"message": "Endpoint exists"}
+# Now we can import from the backend package
+from backend.main import app

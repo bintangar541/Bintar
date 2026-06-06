@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import transactions, auth, goals
+from backend.app.api import transactions, auth, goals
 
 app = FastAPI(title="Bintar AI API", version="1.0.0")
 print("UVICORN: Bintar API Reloaded - Resend Service Active")
