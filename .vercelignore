@@ -1,0 +1,28 @@
+# Flutter build artifacts
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android/iOS
+android/
+ios/
+windows/
+macos/
+linux/
+web/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+*.egg-info/
+
+# Dev files
+.env
+*.log
+node_modules/
+
+# Gradle (Android build)
+.gradle/

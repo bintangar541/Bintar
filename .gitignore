@@ -47,3 +47,5 @@ app.*.map.json
 # Secrets
 .env
 backend/.env
+.vercel
+.env*
