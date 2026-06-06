@@ -5,7 +5,7 @@ import 'package:bintar/core/services/auth_service.dart';
 class ApiService {
   final AuthService _authService;
   final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://192.168.100.85:8000',
+    baseUrl: 'https://bintar-mocha.vercel.app',
     connectTimeout: const Duration(seconds: 15),
     receiveTimeout: const Duration(seconds: 15),
     contentType: 'application/json',

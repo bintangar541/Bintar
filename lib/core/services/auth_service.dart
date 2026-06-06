@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class AuthService {
   final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://192.168.100.85:8000', // Sesuaikan dengan host backend Anda
+    baseUrl: 'https://bintar-mocha.vercel.app', // Sesuaikan dengan host backend Anda
     headers: {'Content-Type': 'application/json'},
   ));
 

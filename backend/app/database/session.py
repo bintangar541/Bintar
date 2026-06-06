@@ -12,19 +12,11 @@ SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./bintar.db")
 if SQLALCHEMY_DATABASE_URL and SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
     SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-try:
-    if SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
-        engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
-    else:
-        engine = create_engine(SQLALCHEMY_DATABASE_URL)
-    # Check connection
-    engine.connect()
-except Exception as e:
-    print(f"Error: Gagal menyambung ke PostgreSQL. Pastikan database 'bintar' sudah dibuat.")
-    print(f"Detail: {e}")
-    # Fallback to sqlite for demo if postgres fails
-    SQLALCHEMY_DATABASE_URL = "sqlite:///./bintar.db"
+if SQLALCHEMY_DATABASE_URL and SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
     engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    # Use pool_pre_ping for better connection handling in serverless
+    engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
