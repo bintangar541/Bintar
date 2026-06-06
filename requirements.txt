@@ -5,8 +5,9 @@ psycopg2-binary
 pydantic
 python-dotenv
 google-generativeai
-passlib[bcrypt]
+passlib
 python-multipart
 jose[cryptography]
 cryptography
 pypdf
+resend
